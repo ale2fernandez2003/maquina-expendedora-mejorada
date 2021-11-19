@@ -86,4 +86,16 @@ public class MaquinaExpendedoraMejorada {
         balanceClienteActual = 0;
         return cantidadDeDineroADevolver;
     } 
+    
+     /**
+     * Esto nos permite vaciar el dinero que 
+     * tenemos acumulaod en la maquina expendedora
+     */
+    public int vaciarDineroDeLaMaquina() {
+        int aDevolver = 0;
+        aDevolver = balanceClienteActual + totalDineroAcumulado;
+        balanceClienteActual = 0;
+        totalDineroAcumulado = 0;
+        return aDevolver; 
+    }
 }
