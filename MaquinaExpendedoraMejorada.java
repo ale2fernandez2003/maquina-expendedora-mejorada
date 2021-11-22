@@ -72,6 +72,8 @@ public class MaquinaExpendedoraMejorada {
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
             // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
             balanceClienteActual = balanceClienteActual - precioBillete;
+            // Nos indica cuantos billetes se han vendido
+            numeroBilletesVendidos = numeroBilletesVendidos + 1;
         }
 
         else {
@@ -117,26 +119,14 @@ public class MaquinaExpendedoraMejorada {
     }
     
     /**
-     * Nos indica la cantidad de 
-     * billetes que han sido vendidos 
-     */
-    public void getNumeroBilletesVendidos (int cantidadImprimida) {
-        if (cantidadImprimida > 0) {
-            numeroBilletesVendidos = numeroBilletesVendidos + cantidadImprimida;
-        }
-        else {
-            System.out.println(cantidadImprimida + " no es una cantidad de billetes valida.");
-        } 
-    }
-    
-    /**
      * Imprimimos la cantidad de 
      * billetes que han sido vendidos 
      */
-    public void imprimeNumeroBilletesVendidos (int getumeroBilleteVendidos) {
+    public void imprimeNumeroBilletesVendidos () {
         
         if (numeroBilletesVendidos >= 0) {
-            System.out.println("Se han vendido"+ numeroBilletesVendidos +"billetes");         }
+            System.out.println("Se han vendido"+ (numeroBilletesVendidos) +"billetes");        
+        }
         
         else{
             System.out.println("No se ha vendido ningun billete");
