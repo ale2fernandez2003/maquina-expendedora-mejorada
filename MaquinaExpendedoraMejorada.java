@@ -6,6 +6,8 @@ public class MaquinaExpendedoraMejorada {
     private int balanceClienteActual;
     // El total de dinero almacenado en la maquina desde su ultimo vaciado
     private int totalDineroAcumulado;
+    // Cuandos billetes se han vendidos 
+    private int numeroBilletesVendidos;
     // El origen del billete
     private String estacionOrigen;
     // El destino del billete
@@ -20,6 +22,7 @@ public class MaquinaExpendedoraMejorada {
         precioBillete = precioDelBillete;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
+        numeroBilletesVendidos = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
     }
@@ -93,9 +96,50 @@ public class MaquinaExpendedoraMejorada {
      */
     public int vaciarDineroDeLaMaquina() {
         int aDevolver = 0;
-        aDevolver = balanceClienteActual + totalDineroAcumulado;
-        balanceClienteActual = 0;
-        totalDineroAcumulado = 0;
-        return aDevolver; 
+        if (balanceClienteActual == 0) {
+          System.out.println("Vacias la maquina"); 
+          balanceClienteActual = 0;
+          totalDineroAcumulado = 0;
+        }
+        
+        else {
+            System.out.println("ERROR"); 
+            aDevolver = -1;
+        }
+        return aDevolver;
+    }
+
+    /**
+     * Devuelve la cantidad de dinero que el cliente actual lleva introducida
+     */
+    public int getNumeroBilletesVendidos() {
+        return numeroBilletesVendidos;
+    }
+    
+    /**
+     * Nos indica la cantidad de 
+     * billetes que han sido vendidos 
+     */
+    public void getNumeroBilletesVendidos (int cantidadImprimida) {
+        if (cantidadImprimida > 0) {
+            numeroBilletesVendidos = numeroBilletesVendidos + cantidadImprimida;
+        }
+        else {
+            System.out.println(cantidadImprimida + " no es una cantidad de billetes valida.");
+        } 
+    }
+    
+    /**
+     * Imprimimos la cantidad de 
+     * billetes que han sido vendidos 
+     */
+    public void imprimeNumeroBilletesVendidos (int getumeroBilleteVendidos) {
+        
+        if (numeroBilletesVendidos >= 0) {
+            System.out.println("Se han vendido"+ numeroBilletesVendidos +"billetes");         }
+        
+        else{
+            System.out.println("No se ha vendido ningun billete");
+        }
     }
 }
