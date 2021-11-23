@@ -66,7 +66,7 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
             System.out.println("# " + precioBillete + " euros.");
             System.out.println("##################");
-            System.out.println();         
+            System.out.println("Tienes un descuento del 10% por ser miembro del supermercado Familia");         
 
             // Actualiza el total de dinero acumulado en la maquina
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
