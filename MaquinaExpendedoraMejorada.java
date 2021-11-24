@@ -12,19 +12,22 @@ public class MaquinaExpendedoraMejorada {
     private String estacionOrigen;
     // El destino del billete
     private String estacionDestino;
+    //Al comprar una entrada te da un  
+    private boolean darPremio;
 
     /**
      * Crea una maquina expendedora de billetes de tren con el 
      * precio del billete y el origen y destino dados. Se asume que el precio
      * del billete que se recibe es mayor que 0.
      */
-    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino) {
+    public MaquinaExpendedoraMejorada(int precioDelBillete, String origen, String destino, boolean darElPremio) {
         precioBillete = precioDelBillete;
         balanceClienteActual = 0;
         totalDineroAcumulado = 0;
         numeroBilletesVendidos = 0;
         estacionOrigen = origen;
         estacionDestino = destino;
+        darPremio = darElPremio;
     }
 
     /**
@@ -66,8 +69,13 @@ public class MaquinaExpendedoraMejorada {
             System.out.println("# De " + estacionOrigen + " a " + estacionDestino);
             System.out.println("# " + precioBillete + " euros.");
             System.out.println("##################");
-            System.out.println("Tienes un descuento del 10% por ser miembro del supermercado Familia");         
-
+            if (darPremio) { 
+                System.out.println("Tiene un descuento de"+ (precioBillete*0.1)+"€ en el supermercado");
+            }
+            
+            else {
+                System.out.println("Lo sentimos pero no podemos darle el premio");
+            }
             // Actualiza el total de dinero acumulado en la maquina
             totalDineroAcumulado = totalDineroAcumulado + precioBillete;
             // Reduce el balance del cliente actual dejandole seguir utilizando la maquina
@@ -78,6 +86,7 @@ public class MaquinaExpendedoraMejorada {
 
         else {
             System.out.println("Necesitas introducir " + (cantidadDeDineroQueFalta) + " euros mas!");
+            System.out.println("No tiene ningun premio");
         } 
     }
 
@@ -123,7 +132,6 @@ public class MaquinaExpendedoraMejorada {
      * billetes que han sido vendidos 
      */
     public void imprimeNumeroBilletesVendidos () {
-        
         if (numeroBilletesVendidos >= 0) {
             System.out.println("Se han vendido"+ (numeroBilletesVendidos) +"billetes");        
         }
