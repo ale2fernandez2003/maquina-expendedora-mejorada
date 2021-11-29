@@ -47,7 +47,7 @@ public class MaquinaExpendedoraMejorada {
         return balanceClienteActual;
     }
 
-    public int getcantidadBilletes(int imprimirBilletes) {
+    public int getcantidadBilletes() {
         return cantidadBilletes;
     }
     
@@ -55,7 +55,7 @@ public class MaquinaExpendedoraMejorada {
      * Simula la introduccion de dinero por parte del cliente actual
      */
     public void introducirDinero(int cantidadIntroducida) {
-        if (cantidadBilletes >= numeroBilletesVendidos) {
+        if (cantidadBilletes > numeroBilletesVendidos) {
             System.out.println ("Aun puedes segir comprando billetes");
             if (cantidadIntroducida > 0) {
                 balanceClienteActual = balanceClienteActual + cantidadIntroducida;
@@ -73,7 +73,7 @@ public class MaquinaExpendedoraMejorada {
      * Imprime un billete para el cliente actual
      */
     public void imprimirBillete (int intcantidadDeDineroQueFalta) {
-        if (cantidadBilletes >= numeroBilletesVendidos) {
+        if (cantidadBilletes > numeroBilletesVendidos) {
             System.out.println ("Quedan " + (cantidadBilletes - numeroBilletesVendidos) + " por imprimir");
             int cantidadDeDineroQueFalta = precioBillete - balanceClienteActual;
             if (cantidadDeDineroQueFalta <= 0) {
